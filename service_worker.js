@@ -1,21 +1,7 @@
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open("axcel-cache").then(cache => {
-      return cache.addAll([
-        "/",
-        "/index.html",
-        "/manifest.json",
-        "/service-worker.js",
-        "/icon.png"
-      ]);
-    })
-  );
+self.addEventListener('install', function(e) {
+  console.log('Service Worker Installed');
 });
 
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
+self.addEventListener('fetch', function(e) {
+  // برای کش کردن در آینده اینجا می‌تونی بنویسی
 });
